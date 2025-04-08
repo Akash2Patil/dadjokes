@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+}
+
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 500px;
+    height: 500px;
+    background-color: #000;
+    color: #fff;
+}
+.wrapper{
+    /* background-image: url(laughbg.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    color: #fff;
+}
+.quotes{
+    padding: 20px;
+    color: #fff;
+    flex-direction: column;
+}
+.wrapper p , .quotes p{
+    font-size: 20px;
+    padding: 10px;
+    padding: 10px;
+    width: 70%;
+    margin: auto;
+    color: #fff;
+}
+.quotes h4{
+    font-size: 16px;
+    padding: 10px;
+    padding: 10px;
+    width: fit-content;
+    margin-left: auto;
+    color: #fff;
+}
+
+
+.jokebtn, .quotesbtn{
+    font-size: 25px;
+    text-transform: capitalize;
+    padding: 5px 8px;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.jokebtn:hover , .quotesbtn:hover{
+    opacity: 0.7;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+.backBtn{
+    cursor : pointer;
+    display: none;
+    text-align: right;
+}
+.backBtn:hover{
+opacity: 0.7;
+}
