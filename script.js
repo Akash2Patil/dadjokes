@@ -1,33 +1,35 @@
-var jokebtn = document.querySelector(".jokebtn");
-var wrapper = document.querySelector(".wrapper");
+// Select elements
+const jokeBtn = document.querySelector(".jokebtn");
+const wrapper = document.querySelector(".wrapper");
 const backBtn = document.querySelector(".backBtn");
+const jokeElem = document.getElementById("jokelem");
 
+// Initial state
 wrapper.style.display = "none";
+backBtn.style.display = "none";
 
-jokebtn.addEventListener("click",()=>{
-    jokebtn.style.display = "none";
-    backBtn.style.display = "block"
-// for jokes
-fetch('https://icanhazdadjoke.com/slack')
-.then(data =>data.json())
-.then(jokedata =>{
-    const joketext = jokedata.attachments[0].text;
-    const jokelem = document.getElementById('jokelem');
-    wrapper.style.display = "flex";
-    jokelem.innerHTML = joketext;
-})
+// Show joke on button click
+jokeBtn.addEventListener("click", () => {
+  jokeBtn.style.display = "none";
+  backBtn.style.display = "block";
 
-})
+  fetch("https://icanhazdadjoke.com/slack")
+    .then((res) => res.json())
+    .then((data) => {
+      const jokeText = data.attachments[0].text;
+      wrapper.style.display = "flex";
+      jokeElem.innerHTML = jokeText;
+    })
+    .catch((err) => {
+      jokeElem.innerHTML = "Oops! Couldn't fetch a joke 😅";
+      wrapper.style.display = "flex";
+      console.error("Error fetching joke:", err);
+    });
+});
 
-
-// back btn
-
-
-backBtn.addEventListener("click",()=>{
-    
-    wrapper.style.display = "none";
-    jokebtn.style.display = "flex";
-    backBtn.style.display = "none"
-})
-
-
+// Back button logic
+backBtn.addEventListener("click", () => {
+  wrapper.style.display = "none";
+  jokeBtn.style.display = "flex";
+  backBtn.style.display = "none";
+});
